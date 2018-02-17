@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package au.id.wolfeidau.postit;
+option go_package = "postit";
+
+message Post {
+  string title = 1;
+  string description = 2;
+  repeated string tags = 3;
+  string date = 4;
+  string slug = 5;
+  string content_type = 6;
+  string content = 7;
+}
+
+service Postit {
+  rpc SavePost(Post) returns (Post);
+}
