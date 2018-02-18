@@ -25,7 +25,7 @@ test:
 
 # Run all the linters
 lint:
-	gometalinter --vendor ./...
+	gometalinter --exclude service.pb.go --exclude service.twirp.go --vendor ./...
 .PHONY: lint
 
 # generate service code
