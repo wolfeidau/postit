@@ -1,4 +1,4 @@
-# postit
+# postit [![Build Status](https://travis-ci.org/wolfeidau/postit.svg?branch=master)](https://travis-ci.org/wolfeidau/postit)
 
 This project illustrates how you can use https://github.com/twitchtv/twirp running in lambda or a docker container. It leans on the great work done in https://github.com/apex/gateway to provide the http server abstraction in lambda therefore enabling deployment of generic golang web servers.
 
