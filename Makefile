@@ -43,7 +43,7 @@ clean:
 .PHONY: clean
 
 # Run all the tests and code checks
-ci: test lint build
+ci: setup test lint
 .PHONY: ci
 
 # run lambda locally using sam-local
