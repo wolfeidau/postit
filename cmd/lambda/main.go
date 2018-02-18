@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/apex/gateway"
+	"github.com/aws/aws-xray-sdk-go/xray"
 	"github.com/sirupsen/logrus"
 	"github.com/wolfeidau/postit"
 )
@@ -16,6 +17,7 @@ func (ps *postitStore) SavePost(c context.Context, post *postit.Post) (*postit.P
 }
 
 func main() {
+	xray.Configure(xray.Config{LogLevel: "trace"})
 	server := postit.NewPostitServer(&postitStore{}, nil)
-	logrus.Fatal(gateway.ListenAndServe(":3000", server))
+	logrus.Fatal(gateway.ListenAndServe(":3000", xray.Handler(xray.NewFixedSegmentNamer("Postit"), server)))
 }
