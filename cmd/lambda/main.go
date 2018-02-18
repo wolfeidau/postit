@@ -22,6 +22,6 @@ func main() {
 	if err != nil {
 		log.Fatal("error configuring xray:", err)
 	}
-	server := postit.NewPostitServer(&postitStore{}, nil)
+	server := postit.NewPostitServer(&postitStore{}, NewXrayServerHooks())
 	logrus.Fatal(gateway.ListenAndServe(":3000", xray.Handler(xray.NewFixedSegmentNamer("Postit"), server)))
 }

@@ -130,6 +130,8 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: main
+      # For options see https://docs.aws.amazon.com/lambda/latest/dg/API_TracingConfig.html
+      Tracing: Active
       Runtime: go1.x
       # These policies will get you started but you really need to 
       # be more specific!

@@ -24,6 +24,12 @@ make local-lambda
 go run cmd/postit/main.go http://localhost:3000
 ```
 
+# tracing
+
+To enable tracing of RPC requests there is also integration to AWS xray.
+
+![Demo of xray](doc/images/xraydemo.png)
+
 # licence
 
 Copyright 2018 Mark Wolfe and licensed under the Apache License, Version 2.0
