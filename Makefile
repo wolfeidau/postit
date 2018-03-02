@@ -39,7 +39,8 @@ build:
 .PHONY: build
 
 clean:
-	rm ./main
+	rm -f ./main
+	rm -f ./handler.zip
 .PHONY: clean
 
 # Run all the tests and code checks
@@ -55,9 +56,12 @@ local-lambda: build
 install:
 	go install ./cmd/postit-server
 	go install ./cmd/postit
+.PHONY: install
 
 # package up the lambda and upload it to S3
 package:
+	echo "package main into hanlder.zip"
+	@zip -9 -r ./handler.zip main
 	echo "Running as: $(shell aws sts get-caller-identity --query Arn --output text)"
 	aws cloudformation package \
 		--template-file deploy.sam.yml \
